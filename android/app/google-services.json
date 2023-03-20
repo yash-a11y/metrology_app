@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "62476031214",
+    "project_id": "metrology-f7717",
+    "storage_bucket": "metrology-f7717.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:62476031214:android:8cd58f9f39807310164fff",
+        "android_client_info": {
+          "package_name": "com.example.metrology_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "62476031214-jhfhttncqorvtc3o8hd5vqn5k0o1aar2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.metrology_app",
+            "certificate_hash": "6d133af4aa9a7ad4ca426afa25a491d7a7cd44ed"
+          }
+        },
+        {
+          "client_id": "62476031214-8l57kcnfh9jvh7id185298qfngfmbtk9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6B6VdxXGo0WPwmIc-G33RPgrdGzLFRQ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "62476031214-8l57kcnfh9jvh7id185298qfngfmbtk9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
