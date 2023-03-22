@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:metrology_app/login.dart';
 import 'package:metrology_app/signup.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }

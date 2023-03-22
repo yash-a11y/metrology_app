@@ -1,10 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:get/get.dart';
+import 'package:metrology_app/controller/imagecont.dart';
 import 'package:metrology_app/dashboard.dart';
+import 'package:metrology_app/newdashboard.dart';
+import 'package:metrology_app/screen/home.dart';
 import 'package:metrology_app/signup.dart';
 
-class Login extends StatefulWidget {
+class Login  extends StatefulWidget {
   const Login({super.key});
 
   @override
@@ -36,9 +41,18 @@ class _LoginState extends State<Login> {
     try {
       UserCredential userCredential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => Dashboard()));
-      await storage.write(key: "uid", value: userCredential.user?.uid);
+      Navigator.push(
+      
+          context, MaterialPageRoute(builder: (context) => Dashboard(),
+          //  settings: RouteSettings(
+          //           arguments: BindingsBuilder(() {
+          //             Get.put(ImageController());
+          //           }),)
+          ));
+
+      await storage.write(key: "uid", value: userCredential.user?.uid
+      );
+      
       // print(userId);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
@@ -69,7 +83,8 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return GetMaterialApp(
+      home:  Scaffold(
       body: Form(
         key: _formKey,
         child: ListView(
@@ -205,6 +220,8 @@ class _LoginState extends State<Login> {
           ],
         ),
       ),
+    )
+  ,
     );
-  }
+   }
 }
