@@ -2,6 +2,9 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:metrology_app/Listview/inquryList.dart';
+import 'package:metrology_app/screen/Aoubtus.dart';
+import 'package:metrology_app/screen/contactUs.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
@@ -41,18 +44,130 @@ class _NavBarState extends State<NavBar> {
           ListTile(
             leading: Icon(Icons.cloud),
             title: Text("My Inquiry"),
-            // onTap: () {
-            //   Navigator.push(context,
-            //       MaterialPageRoute(builder: (context) => About()));
-            // },
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => InqryList()));
+            },
           ),
           ListTile(
             leading: Icon(Icons.phone),
             title: Text("Contact Us"),
-            // onTap: () {
+            onTap: () {
             //   Navigator.push(context,
-            //       MaterialPageRoute(builder: (context) => CourseList()));
+            //       MaterialPageRoute(builder: (context) => ContactUs()));
             // },
+
+            showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return Dialog(
+            shape: RoundedRectangleBorder(
+                borderRadius:
+                    BorderRadius.circular(20.0)), //this right here
+            child: Container(
+              height: 500,
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    
+                    Center(
+                      child: Text("Contact Us Form",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 19
+                      ),),
+                    ),
+
+                    SizedBox(height: 19,),
+
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: Colors.black)
+
+                      ),
+                      child: TextField(
+                        
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.account_box),
+                            border: InputBorder.none,
+                            hintText: 'Name'),
+                      ),
+                    ),
+
+                     SizedBox(height: 19,),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: Colors.black)
+
+                      ),
+                      child: TextField(
+                       
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.message),
+                            border: InputBorder.none,
+                            hintText: 'Message'),
+                      ),
+                    ),
+                         SizedBox(height: 19,),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(2),
+                        border: Border.all(color: Colors.black)
+
+                      ),
+                      child: TextField(
+                        maxLength: 250,
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.folder),
+                            border: InputBorder.none,
+                            hintText: 'Subject'),
+                      ),
+                    ),
+
+                      SizedBox(height: 30,),
+                   
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                         SizedBox(
+                          width: 115,
+                          child: ElevatedButton(
+                            onPressed: () {
+                          
+                            },
+                            child: Text(
+                              "cancel",
+                              style: TextStyle(color: Colors.black),
+                            ),
+                            
+                          ),
+                        ),
+                        SizedBox(
+                          width: 115,
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            child: Text(
+                              "submit",
+                              style: TextStyle(color: Colors.black),
+                            ),
+                            
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
+          );
+        });
+            }
           ),
           ListTile(
             leading: Icon(Icons.laptop),
@@ -65,10 +180,10 @@ class _NavBarState extends State<NavBar> {
           ListTile(
             leading: Icon(Icons.backpack),
             title: Text("About"),
-            // onTap: () {
-            //   Navigator.push(
-            //       context, MaterialPageRoute(builder: (context) => TechHome()));
-            // },
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => AboutUs()));
+            },
           ),
         
         ],

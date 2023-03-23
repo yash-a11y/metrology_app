@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 import 'package:metrology_app/controller/imagecont.dart';
-import 'package:metrology_app/dashboard.dart';
-import 'package:metrology_app/newdashboard.dart';
+import 'package:metrology_app/screen/dashboard.dart';
+import 'package:metrology_app/services/newdashboard.dart';
 import 'package:metrology_app/screen/home.dart';
 import 'package:metrology_app/signup.dart';
 
