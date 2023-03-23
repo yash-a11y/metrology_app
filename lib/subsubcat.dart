@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:metrology_app/Listview/productlist.dart';
-import 'package:metrology_app/subsubcat.dart';
 
-class SubCat extends StatefulWidget {
-  const SubCat({super.key});
+class SubSubCat extends StatefulWidget {
+  const SubSubCat({super.key});
 
   @override
-  State<SubCat> createState() => _SubCatState();
+  State<SubSubCat> createState() => _SubSubCatState();
 }
 
-class _SubCatState extends State<SubCat> {
+class _SubSubCatState extends State<SubSubCat> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("SubCategory"),
+        title: Text("SubSubCategory"),
       ),
       body: Container(
         child: GridView(
@@ -24,7 +23,7 @@ class _SubCatState extends State<SubCat> {
               TextButton(
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SubSubCat()));
+                      MaterialPageRoute(builder: (context) => ProdcutList()));
                 },
                 child: Padding(
                   padding:
@@ -36,7 +35,7 @@ class _SubCatState extends State<SubCat> {
                         height: 200,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("assets/images/cat1.jpg"),
+                                image: AssetImage("assets/images/cat3.jpg"),
                                 fit: BoxFit.cover),
                             borderRadius: BorderRadius.circular(19),
                             border: Border.all(color: Colors.black)),
@@ -45,38 +44,7 @@ class _SubCatState extends State<SubCat> {
                           bottom: 10,
                           left: 15,
                           child: Text(
-                            "Square End mill",
-                            style: TextStyle(color: Colors.white),
-                          ))
-                    ],
-                  ),
-                ),
-              ),
-              TextButton(
-                onPressed: () {
-                  // Navigator.push(context,
-                  //     MaterialPageRoute(builder: (context) => SubSubCat()));
-                },
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                  child: Stack(
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: 200,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage("assets/images/cat1.jpg"),
-                                fit: BoxFit.cover),
-                            borderRadius: BorderRadius.circular(19),
-                            border: Border.all(color: Colors.black)),
-                      ),
-                      Positioned(
-                          bottom: 10,
-                          left: 15,
-                          child: Text(
-                            "Bad Endmill",
+                            "Graphite",
                             style: TextStyle(color: Colors.white),
                           ))
                     ],
@@ -98,7 +66,7 @@ class _SubCatState extends State<SubCat> {
                         height: 200,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("assets/images/cat1.jpg"),
+                                image: AssetImage("assets/images/cat3.jpg"),
                                 fit: BoxFit.cover),
                             borderRadius: BorderRadius.circular(19),
                             border: Border.all(color: Colors.black)),
@@ -107,7 +75,38 @@ class _SubCatState extends State<SubCat> {
                           bottom: 10,
                           left: 15,
                           child: Text(
-                            "Corner Radius Endmill",
+                            "Steel",
+                            style: TextStyle(color: Colors.white),
+                          ))
+                    ],
+                  ),
+                ),
+              ),
+              TextButton(
+                onPressed: () {
+                  // Navigator.push(context,
+                  //     MaterialPageRoute(builder: (context) => ProdcutList()));
+                },
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  child: Stack(
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: 200,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("assets/images/cat3.jpg"),
+                                fit: BoxFit.cover),
+                            borderRadius: BorderRadius.circular(19),
+                            border: Border.all(color: Colors.black)),
+                      ),
+                      Positioned(
+                          bottom: 10,
+                          left: 15,
+                          child: Text(
+                            "Stainless Steel",
                             style: TextStyle(color: Colors.white),
                           ))
                     ],
@@ -179,5 +178,6 @@ class _SubCatState extends State<SubCat> {
             ]),
       ),
     );
+    ;
   }
 }

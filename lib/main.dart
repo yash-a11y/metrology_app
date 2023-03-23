@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:metrology_app/login.dart';
+import 'package:metrology_app/screen/dashboard.dart';
 import 'package:metrology_app/signup.dart';
 
 void main() async {
@@ -11,6 +13,17 @@ void main() async {
 class MyApp extends StatelessWidget {
   MyApp({super.key});
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+  final storage = new FlutterSecureStorage();
+
+  Future<bool> checkLoginStatus() async {
+    String? value = await storage.read(key: "uid");
+    if (value == null) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -19,17 +32,37 @@ class MyApp extends StatelessWidget {
         if (snapshot.hasError) {
           print("Something Went Wrong");
         }
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
 
-        if (snapshot.connectionState == ConnectionState.done) {
-          return MaterialApp(
+        return MaterialApp(
             title: 'Metrology',
             theme: ThemeData(
               primarySwatch: Colors.blue,
             ),
-            home: const MyHomePage(),
-          );
-        }
-        return Center(child: CircularProgressIndicator());
+            home: FutureBuilder(
+              future: checkLoginStatus(),
+              builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
+                if (snapshot.data == false) {
+                  return MyHomePage();
+                }
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Container(
+                    color: Colors.white,
+                    child: Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  );
+                }
+                return Dashboard();
+              },
+            )
+
+            //MyHomePage(),
+            );
       },
     );
   }
